@@ -43,7 +43,7 @@
   .tip .d { color: var(--muted); }
   table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
   th, td { padding: 8px 6px; border-bottom: 1px solid var(--line); text-align: right; }
-  th:nth-child(-n+2), td:nth-child(-n+2) { text-align: left; }
+  th:nth-child(-n+3), td:nth-child(-n+3) { text-align: left; }
   th { color: var(--muted); font-weight: 500; font-size: .8rem; }
   .tw { overflow-x: auto; }
   footer { color: var(--muted); font-size: .8rem; }
@@ -58,50 +58,19 @@
   <nav role="tablist" id="tabs"></nav>
   <div id="sections"></div>
   <footer>
-    Quelle: Kaack Terminhandel (kaack-terminhandel.de), Chart „Fortlaufend“, Werte aus dem Tooltip abgelesen.
+    Quelle: Kaack Terminhandel (kaack-terminhandel.de), Chart „Fortlaufend“, Schlusskurse (Settlement) der fortlaufenden Reihe; der jeweils verwendete Termin steht in der Tabelle. Wöchentlich automatisch aktualisiert.
     Kursquellen: Euronext Paris (Weizen), EEX Leipzig (Magermilchpulver). Alle Angaben ohne Gewähr.
   </footer>
 </main>
 
 <script>
-/* ===== DATEN – nur hier ändern ===== */
-const STAND = "29.10.2026";
-const PRODUKTE = [
-  {
-    id: "weizen",
-    name: "MATIF-Weizen No. 2",
-    boerse: "Euronext Paris",
-    dezimalen: 2,
-    werte: [
-      { kw: 38, datum: "2026-09-16", kurs: 244.50 },
-      { kw: 39, datum: "2026-09-23", kurs: 240.50 },
-      { kw: 40, datum: "2026-09-30", kurs: 236.00 },
-      { kw: 41, datum: "2026-10-07", kurs: 244.25 },
-      { kw: 42, datum: "2026-10-14", kurs: 248.25 },
-      { kw: 43, datum: "2026-10-21", kurs: 232.75 }
-    ]
-  },
-  {
-    id: "mmp",
-    name: "EEX-Magermilchpulver",
-    boerse: "EEX Leipzig",
-    dezimalen: 0,
-    werte: [
-      { kw: 38, datum: "2026-09-16", kurs: 3214 },
-      { kw: 39, datum: "2026-09-23", kurs: 3309 },
-      { kw: 40, datum: "2026-09-30", kurs: 3415 },
-      { kw: 41, datum: "2026-10-07", kurs: 3525 },
-      { kw: 42, datum: "2026-10-14", kurs: 3525 },
-      { kw: 43, datum: "2026-10-21", kurs: 3725 },
-      { kw: 44, datum: "2026-10-28", kurs: 3685 }
-    ]
-  }
-];
-/* ===== ENDE DATEN ===== */
+let STAND = "", PRODUKTE = [];
 
 const fmt = (v, d) => new Intl.NumberFormat("de-DE", { minimumFractionDigits: d, maximumFractionDigits: 2 }).format(v);
 const fmtD = (s) => s.slice(8, 10) + "." + s.slice(5, 7) + "." + s.slice(0, 4);
 const sign = (v, d) => v == null ? "–" : (v > 0 ? "+" : v < 0 ? "−" : "±") + fmt(Math.abs(v), d);
+const MON = ["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const terminTxt = (t) => t ? MON[Number(t.slice(5, 7)) - 1] + " " + t.slice(2, 4) : "–";
 const cls = (v) => v > 0 ? "up" : v < 0 ? "down" : "";
 const el = (tag, attrs = {}, ...kids) => {
   const e = document.createElement(tag);
@@ -193,7 +162,7 @@ function bauen() {
     const box = el("div", { class: "chart" });
     const tb = el("tbody");
     a.w.forEach((r) => tb.append(el("tr", {},
-      el("td", {}, String(r.kw)), el("td", {}, fmtD(r.datum)), el("td", {}, fmt(r.kurs, d)),
+      el("td", {}, String(r.kw)), el("td", {}, fmtD(r.datum)), el("td", {}, terminTxt(r.termin)), el("td", {}, fmt(r.kurs, d)),
       el("td", { class: cls(r.diff) }, sign(r.diff, d)),
       el("td", { class: cls(r.pct) }, r.pct == null ? "–" : sign(Math.round(r.pct * 100) / 100, 2)))));
     const sec = el("section", { id: p.id },
@@ -216,7 +185,7 @@ function bauen() {
         el("p", { class: "note" }, p.boerse + ", €/t, Stichtag jeweils Mittwoch"), box),
       el("div", { class: "card" }, el("h3", {}, "Tabelle"),
         el("div", { class: "tw" }, el("table", {},
-          el("thead", {}, el("tr", {}, el("th", {}, "KW"), el("th", {}, "Datum"), el("th", {}, "Schlusskurs €/t"), el("th", {}, "Veränd. €/t"), el("th", {}, "Veränd. %"))),
+          el("thead", {}, el("tr", {}, el("th", {}, "KW"), el("th", {}, "Datum"), el("th", {}, "Termin"), el("th", {}, "Schlusskurs €/t"), el("th", {}, "Veränd. €/t"), el("th", {}, "Veränd. %"))),
           tb))));
     if (idx !== 0) sec.hidden = true;
     secs.append(sec);
@@ -231,7 +200,14 @@ function bauen() {
   redraw();
   let t; window.addEventListener("resize", () => { clearTimeout(t); t = setTimeout(redraw, 150); });
 }
-bauen();
+fetch("data/kurse.json", { cache: "no-store" })
+  .then((r) => r.json())
+  .then((d) => {
+    STAND = d.stand;
+    PRODUKTE = Object.entries(d.produkte).map(([id, p]) => ({ id, ...p }));
+    bauen();
+  })
+  .catch(() => { document.getElementById("sections").textContent = "Kursdaten konnten nicht geladen werden."; });
 </script>
 </body>
 </html>
