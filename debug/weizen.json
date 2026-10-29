@@ -1,0 +1,269 @@
+{
+  "url": "https://www.kaack-terminhandel.de/euronext/weizen",
+  "auswahl": [
+    {
+      "name": "target",
+      "id": "ctrl_target",
+      "klasse": "select",
+      "wert": "",
+      "optionen": [
+        {
+          "wert": "",
+          "text": "DE"
+        },
+        {
+          "wert": "en/",
+          "text": "EN"
+        },
+        {
+          "wert": "pl/",
+          "text": "PL"
+        }
+      ]
+    }
+  ],
+  "charts": {
+    "highcharts": null,
+    "globals": [
+      "onformdata",
+      "onloadeddata",
+      "onloadedmetadata",
+      "dataLayer",
+      "google_tag_data",
+      "_Highcharts"
+    ]
+  },
+  "anfragen": [
+    {
+      "url": "https://www.kaack-terminhandel.de/euronext/weizen",
+      "methode": "GET",
+      "typ": "document",
+      "status": 200,
+      "ctype": "text/html; charset=UTF-8",
+      "post": null
+    },
+    {
+      "url": "https://www.kaack-terminhandel.de/assets/js/jquery.min.js,contao-utils-bundle.js-fde2cca2.js",
+      "methode": "GET",
+      "typ": "script",
+      "status": 200,
+      "ctype": "application/javascript",
+      "post": null
+    },
+    {
+      "url": "https://securepubads.g.doubleclick.net/tag/js/gpt.js",
+      "methode": "GET",
+      "typ": "script",
+      "status": 200,
+      "ctype": "text/javascript; charset=UTF-8",
+      "post": null
+    },
+    {
+      "url": "https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202610230101/pubads_impl.js",
+      "methode": "GET",
+      "typ": "script",
+      "status": 200,
+      "ctype": "text/javascript; charset=UTF-8",
+      "post": null
+    },
+    {
+      "url": "https://cm.g.doubleclick.net/partnerpixels?url=https%3A%2F%2Fwww.kaack-terminhandel.de%2Feuronext%2Fweizen",
+      "methode": "GET",
+      "typ": "document",
+      "status": 200,
+      "ctype": "text/html; charset=UTF-8",
+      "post": null
+    },
+    {
+      "url": "https://www.googletagmanager.com/gtag/js?id=UA-23364675-1",
+      "methode": "GET",
+      "typ": "script",
+      "status": 200,
+      "ctype": "application/javascript; charset=UTF-8",
+      "post": null
+    },
+    {
+      "url": "https://www.kaack-terminhandel.de/assets/js/handlebars.min-v4.7.6.js,headroom.min.js,js.cookie.min.js,inline...-a0a28155.js",
+      "methode": "GET",
+      "typ": "script",
+      "status": 200,
+      "ctype": "application/javascript",
+      "post": null
+    },
+    {
+      "url": "https://www.kaack-terminhandel.de/files/react/modules/static/js/685.938feae3.chunk.js",
+      "methode": "GET",
+      "typ": "script",
+      "status": 200,
+      "ctype": "application/javascript",
+      "post": null
+    },
+    {
+      "url": "https://securepubads.g.doubleclick.net/pagead/purl_config?url=https%3A%2F%2Fwww.kaack-terminhandel.de%2Feuronext%2Fweizen&puc_types=2%3A4&pppnc=13925333&pnc=13925333",
+      "methode": "GET",
+      "typ": "fetch",
+      "status": 200,
+      "ctype": "application/json; charset=UTF-8",
+      "post": null,
+      "body": "[]"
+    },
+    {
+      "url": "https://186370a5ab6ecbef7a87523f321126f6.safeframe.googlesyndication.com/safeframe/1-0-45/html/container.html",
+      "methode": "GET",
+      "typ": "document",
+      "status": 200,
+      "ctype": "text/html",
+      "post": null
+    },
+    {
+      "url": "https://securepubads.g.doubleclick.net/gampad/ads?pvsid=7876021167201558&correlator=303725120578063&eid=95401823%2C122881696&output=ldjh&gdfp_req=1&vrg=202610230101&ptt=17&impl=fifs&iu_parts=13925333%2Cdfp_Kursdaten_WSK%2CMatif-Weizen_Leaderboard_728x90&enc_prev_ius=%2F0%2F1%2C%2F0%2F2&prev_iu_szs=160x600%2C980x120&ifi=1&dids=div-gpt-ad-1647599920666-0~div-gpt-ad-1678354369367-0&adfs=~1992983363&sfv=1-0-45&sc=1&cookie_enabled=1&abxe=1&dt=1793276261016&lmt=1793276261&adxs=-9%2C43&adys=-9%2C177&biw=1280&bih=1600&scr_x=0&scr_y=0&btvi=-1%7C0&ucis=1%7C2&oid=2&u_his=2&u_h=1600&u_w=1280&u_ah=1600&u_aw=1280&u_cd=24&u_sd=1&dmc=16&bc=31&nvt=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&url=https%3A%2F%2Fwww.kaack-terminhandel.de%2Feuronext%2Fweizen&vis=1&psz=0x-1%7C980x0&msz=0x-1%7C980x0&fws=2%2C4&ohw=0%2C1280&dlt=1793276260314&idt=599&adks=721969504%2C191452154&frm=20&no_cau_info=1&cpu=2&eoidce=1&pgls=CAA.",
+      "methode": "GET",
+      "typ": "fetch",
+      "status": 200,
+      "ctype": "text/plain; charset=UTF-8",
+      "post": null,
+      "body": "{\"/13925333/dfp_Kursdaten_WSK\":[\"html\",0,null,null,0,600,160,0,0,null,null,null,1,[[\"ID=0428b1bea171d9c4:T=1793276261:RT=1793276261:S=ALNI_MaEkPk4YO1t4utN0Ot8nYjw3Yxoyw\",1826972261,\"/\",\"kaack-terminhandel.de\",1],[\"UID=00001651749f8eb5:T=1793276261:RT=1793276261:S=ALNI_MbK4A00azYncphobojmeQDsmN50Aw\",1826972261,\"/\",\"kaack-terminhandel.de\",2]],[138316998334],[5418458062],[4635569922],[2409021271],null,null,null,null,null,null,null,0,null,null,null,null,null,null,\"AOrYGskJwxFz3JCzidw-Kw_FIthFgAhLMceClTcB9CmR2-ISdasd1BfkG_aqRFklxP1TQvIityExwIxng2-dXtLoHb0GSQrYXDWSI78h\",\"CMLnmNSa35cDFZ7L_QUdXsUCWA\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,\"1\",null,null,null,null,null,null,null,null,null,null,null,\"AA-V4qOvh6EvitJaOSZGsyxnyvRGue-rD969RBluBkss75BBnVvtkQFIr0V7dCHJ3AmkiW7FUidoWHCqqY96nE4cp3FSV_Hr9C9tHwHxyf2-IXmKE6M\",null,null,null,null,null,null,[[\"ID=aacb599a8d9ba3da:T=1793276261:RT=1793276261:S=AA-Afja0aQVi0zqTdVyqXgoHdlCI\",1808828261,\"/\",\"kaack-terminhandel.de\"]],null,null,null,null,\"https://adssettings.google.com/whythisad?source=display\\u0026reasons=AQSQ1KPHDcpTfzmEDxc8ZQeqakE4sopXENQCCmLpKhP-A9ibv9_rKYODa7GkqeenFoQ5yQ85GHcNHRud7re98mJS4MMKJzmHmZYC2WFOM2F5iav1IfuHSESY8Fyj0j2zDKr0Q20lnyRZV6n2gO0FMKXIdJiZ-aEjzHxU_6IVrAOWYO7BQ38HCpp9CYZpGNV7QXcPjlwsZ6wZq7hRmI8BFAl7osTz7sc_ERYDR0JWsj-P7Hmez7MeVxTWxqNusxW7eahpRk8miHDFXEJ30Asv6LQKzJN9g5_5jPTNf-723nY4_fUdzUx50gpwSrmOD-iLUkRLzR3bJF96C32GgIwTla9ZCOC4mNiVJqibBHYexoAml1epo_f3_BZT0jpm3zeKrkwCoqDFmtYH2qeNEft1awrrI0dykXtVif4Ih-LW938EquL19kvfL4dFoaQ0iUXICXptsDAXQyboyo-jhf9WWbdXB_t16U16Jmwf1HYmkZIm7TsuyqdQYqPspnovd8TukmmlMkHMyU-1GOVxpTKgS6NNUGB5_ivVQFIgS-04S9l55OOj1oiCTq-m0WIWBWld5gLtfxQ11c_nlkZNJK31X0NIIpjuJCVUjh9gtuvKfmr39zf37ePB6Bbbr0MKFUKkOof-NQnD0N8BUPD6YoZ4I3D08iN5jbvk3os_J7Sk0dY0fGSNv7qLhWJ7m3PHrDfBdAUZS3ci5rOQ4OnlotD4iXbpkARjzv91xy-h_aq7PzGYPIqM0NtbAZ3VSK7gQPwHkcvK3OteXnQQE8ED4towqF6pF3C08yYbtb89dkHaXxxdEN_c3JxgiQ87RkLx0K6N1acngUz86RDEB1-urOLwqQNewHbOCnJ58qMa8SxQW_oXf6KXOBVXgzitrMGeay1ZeCE_ysphcfZi9YcXIGv9dKXf0r0ZSfAKTacdnjmkx76m_aic8cdabKVdsR7SJ3D_xUnHmRI7AVYcG1Xs1TQoqthGBeyD58L52ykhFibi7AMrHITJNrMi_Kdvb5fWz58UWJudGn-4R1HxLy5fX2TB1VVh3EfeqTMsPbFBhaQeD1s9PjY_LPiA-lkgGZ4Q-BiMo5TBeUylCmLvEUtoFZcwQCnPN8z29D8H_Ov3ZC_IukS3ZfrjLREkmG6KPtPqdll8HOrUbn9qLklB8qFLaoBKkIxWGij08VZEx4458D7354cfri55xDxjhQTLyIcL8O6HUt-CgZmBNMmUwFNaSmSAkGKA6Ymhuau-sw7OGitFl-v1OKWb_YyR47kbkOww1sgXFfm1AFl9JPySewhI8QB9ApNnXvojkLQyguyPK2bEtahaARo5PtZjqQcLevj-7PmZ9J49a9r5BpgE4k2gpeyj9mmi1IV1B0xmtglhGPbK5GyNknAmYvK3fPlCQKW299h4t07lK65uSHIXFmHAPKReUTDF5VtX49PB51MMkYSLD9r7NFAsJ_nBtX72E9enbBOsd-HFY3lbZqwlxj-kHmLO5_JdPMHXoeJV9c8jKlR4b3N9D6OFU_kRdihdk8ZCgj75oD9H2TxHkrUHwEDOck3b42SdOpSRXAF7FIo_Nr2OYG02e6tLVYVFwgIIq4aaocjWa704M1hqFQTC6FJvI8d4vBognXk6ZJtUCThG3u7GoWHztGjWc8VnpzQegXALY41qpyCunjr2ZIxRrrF_s2thQc5Bn8XsYuJCQDVFx1v3oEOkY_wH-OBj4k5Ulr1hQcIRe91VGjh1zqbUjIDdnKJvfyM2b7XXZY7bFv9Cc3Vwh0gJXY-pIxZlswioThVY6d8Wj6p7BorofqN45bNlzlu4ccHODMjBchi-sgqKj3fP6bqo8XENIemYUUKTD6rKEGU4xCWND7fHVaubhrIbGYD7NRIkyFvpsI7PcC2wSh1sFUHLpWNLBU8SJg2BPjZhi8aMgRAHkufcJx7RyK4uBuUmJrcD6IMCPUoOh7KRPsu4mbT4GNuqOcEg6Be0J4dT7BghQ4ZilabFFoMDofYahau4PYiqrN6Oqxg3vJ8PXtl3JeYuI9_-2vScu69eXQrBsYpZgKQn3V3SVW8jI0LCipUD4D13GPosq2Sh4u2vYVVMmIKInGBwxSzTDDS9DvnqKPb79vu71eDlC0-c5WOZFxnRjMGs5klExaZkftif2Nea0IJTDMcJdNyh0gNUxYmivFQfzegvSmYgROaIC9QBXlr4rIMcmZFuSOMdglLyjaU3kfwS-W7IL7TmNXcaOz1JbzDa6MXlTDtIfZPXgv8BDvGxamqDwPklZOnoTcGesGljwf2uBhz4chdovC7_vvsZo7n9dZdo7jQJuxfe6a2Vgaz2HhQepuk7dHOdAMux1Q\\u0026opi=122715837\",[\"de\",\"Anzeige\",\"Anzeigeninhalte von Drittanbietern\",\"Weiterlesen\"]]}\n<!doctype html><html><head><script>var jscVersion = 'r20261028';</script><script>var google_casm=[];</script><style>a { color: #000000 }</style><script>function su(id) {var a = document.getElementById(id);var b = (new Date()).getTime();if (a && a.myt && b) {var t = b - a.myt;if (window.css) {css(id,'clkt',t);return;}var bi = a.href.indexOf(\"&clkt=\");if (bi > 0) {var c = a.href.substring(0, bi+6); var d = a.href.substring(bi+6, a.href.length);var ei = d.indexOf(\"&\");var r ="
+    },
+    {
+      "url": "https://securepubads.g.doubleclick.net/gampad/ads?pvsid=7876021167201558&correlator=303725120578063&eid=95401823%2C122881696&output=ldjh&gdfp_req=1&vrg=202610230101&ptt=17&impl=fifs&iu_parts=13925333%2CMatifWeizen_Skyscraper_160x600&enc_prev_ius=%2F0%2F1&prev_iu_szs=160x600&ifi=3&dids=div-gpt-ad-1660140111534-0&adfs=2574887008&sfv=1-0-45&sc=1&cookie_enabled=1&abxe=1&dt=1793276261023&lmt=1793276261&adxs=1082&adys=177&biw=1280&bih=1600&scr_x=0&scr_y=0&btvi=0&ucis=3&oid=2&u_his=2&u_h=1600&u_w=1280&u_ah=1600&u_aw=1280&u_cd=24&u_sd=1&dmc=16&bc=31&nvt=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&url=https%3A%2F%2Fwww.kaack-terminhandel.de%2Feuronext%2Fweizen&vis=1&psz=183x600&msz=183x600&fws=4&ohw=1280&dlt=1793276260314&idt=599&adks=3712147091&frm=20&no_cau_info=1&cpu=2&eoidce=1&pgls=CAA.",
+      "methode": "GET",
+      "typ": "fetch",
+      "status": 200,
+      "ctype": "text/plain; charset=UTF-8",
+      "post": null,
+      "body": "{\"/13925333/MatifWeizen_Skyscraper_160x600\":[\"html\",0,null,null,0,600,160,1,0,null,null,null,null,[[\"ID=82def8b5a3dbe68d:T=1793276261:RT=1793276261:S=ALNI_MYz-agQMpWBsGKumflRg7UcRbA7KA\",1826972261,\"/\",\"kaack-terminhandel.de\",1],[\"UID=000016517607f223:T=1793276261:RT=1793276261:S=ALNI_MYEdyaM8W5m77tpWKIrgiF6eTKFuQ\",1826972261,\"/\",\"kaack-terminhandel.de\",2]],null,null,null,null,null,null,null,null,null,null,null,0,null,null,null,null,null,null,\"AOrYGslXqzWxZnMwa10HhsoG5C0a\",\"CL7GmNSa35cDFQvFfwQdLaYE5w\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,\"3\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[\"ID=50afab74e098e576:T=1793276261:RT=1793276261:S=AA-AfjYXC_ey-xyMCkLeZYYGzAYz\",1808828261,\"/\",\"kaack-terminhandel.de\"]],null,null,null,null,null,[\"de\",\"Anzeige\",\"Anzeigeninhalte von Drittanbietern\",\"Weiterlesen\"]]}\n\n"
+    },
+    {
+      "url": "https://www.kaack-terminhandel.de/files/scripts/fontawesome/js/fontawesome.min.js",
+      "methode": "GET",
+      "typ": "script",
+      "status": 200,
+      "ctype": "application/javascript",
+      "post": null
+    },
+    {
+      "url": "https://www.kaack-terminhandel.de/files/react/modules/static/js/main.3c3791c2.js",
+      "methode": "GET",
+      "typ": "script",
+      "status": 200,
+      "ctype": "application/javascript",
+      "post": null
+    },
+    {
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-0Z4GFNTK78&cx=c&gtm=4e6ar1",
+      "methode": "GET",
+      "typ": "script",
+      "status": 200,
+      "ctype": "application/javascript; charset=UTF-8",
+      "post": null
+    },
+    {
+      "url": "https://www.kaack-terminhandel.de/files/scripts/fontawesome/js/brands.min.js",
+      "methode": "GET",
+      "typ": "script",
+      "status": 200,
+      "ctype": "application/javascript",
+      "post": null
+    },
+    {
+      "url": "https://www.kaack-terminhandel.de/files/scripts/fontawesome/js/solid.min.js",
+      "methode": "GET",
+      "typ": "script",
+      "status": 200,
+      "ctype": "application/javascript",
+      "post": null
+    },
+    {
+      "url": "https://www.kaack-terminhandel.de/files/scripts/fontawesome/js/light.min.js",
+      "methode": "GET",
+      "typ": "script",
+      "status": 200,
+      "ctype": "application/javascript",
+      "post": null
+    },
+    {
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-0Z4GFNTK78&gtm=45je6ar1v870740728za20oxf1&_p=1793276260775&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAI&cid=1579199475.1793276262&frm=0&ngs=1&pscdl=noapi&rcb=15&sr=1280x1600&uaa=x86&uab=64&uafvl=Not%253AA-Brand%3B8.0.0.0%7CChromium%3B156.0.8078.4%7CHeadlessChrome%3B156.0.8078.4&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=de-de&_s=1&tag_exp=115938466~115938468~118897920~118897930~120213116~120385423~120469145~120469153~121246026~121246034&sid=1793276261&sct=1&seg=0&dl=https%3A%2F%2Fwww.kaack-terminhandel.de%2Feuronext%2Fweizen&dt=Euronext-Weizen%20-%20aktueller%20Weizenpreis&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=2731",
+      "methode": "POST",
+      "typ": "fetch",
+      "status": 204,
+      "ctype": "text/plain",
+      "post": null,
+      "body": null
+    },
+    {
+      "url": "https://www.kaack-terminhandel.de/files/scripts/fontawesome/js/regular.min.js",
+      "methode": "GET",
+      "typ": "script",
+      "status": 200,
+      "ctype": "application/javascript",
+      "post": null
+    },
+    {
+      "url": "https://www.kaack-terminhandel.de/files/scripts/fontawesome/js/duotone.min.js",
+      "methode": "GET",
+      "typ": "script",
+      "status": 200,
+      "ctype": "application/javascript",
+      "post": null
+    },
+    {
+      "url": "https://ep1.adtrafficquality.google/getconfig/sodar?sv=200&tid=gpt&tv=m202610230101&st=env&sjk=7876021167201558",
+      "methode": "GET",
+      "typ": "xhr",
+      "status": 200,
+      "ctype": "application/json; charset=UTF-8",
+      "post": null,
+      "body": "{\"sodar_query_id\":\"ZjnjavewHqK6kPIP4evSgQM\",\"injector_basename\":\"sodar2\",\"bg_hash_basename\":\"USqDBxxaEB81OiiQK_4M73OMxxzDlOjcXMsYnMsZeLg\",\"bg_binary\":\"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"
+    },
+    {
+      "url": "https://ep2.adtrafficquality.google/sodar/sodar2.js",
+      "methode": "GET",
+      "typ": "script",
+      "status": 200,
+      "ctype": "text/javascript",
+      "post": null
+    },
+    {
+      "url": "https://ep2.adtrafficquality.google/sodar/sodar2/257/runner.html",
+      "methode": "GET",
+      "typ": "document",
+      "status": 200,
+      "ctype": "text/html",
+      "post": null
+    },
+    {
+      "url": "https://pagead2.googlesyndication.com/bg/USqDBxxaEB81OiiQK_4M73OMxxzDlOjcXMsYnMsZeLg.js",
+      "methode": "GET",
+      "typ": "script",
+      "status": 200,
+      "ctype": "text/javascript",
+      "post": null
+    },
+    {
+      "url": "https://www.google.com/recaptcha/api2/aframe",
+      "methode": "GET",
+      "typ": "document",
+      "status": 200,
+      "ctype": "text/html; charset=utf-8",
+      "post": null
+    },
+    {
+      "url": "https://connect.kt-core.de/extern/ll/quotes?bi%5B%5D=LM3EBM0YFR07&currency=eur&unit=t&table=delayed",
+      "methode": "GET",
+      "typ": "xhr",
+      "status": 200,
+      "ctype": "application/json",
+      "post": null,
+      "body": "{\n    \"quotes\": {\n        \"element\": [\n            {\n                \"instrument_code\": \"LXFREBM26Z02\",\n                \"exchange_code\": \"par-c\",\n                \"base_instrument_code\": \"LM3EBM0YFR07\",\n                \"name\": \"Weizen\",\n                \"contract_unit\": \"50 t\",\n                \"price_quotation\": \"\\u20ac \\/ t\",\n                \"contract\": \"2026-12\",\n                \"trading_day\": \"2026-10-29\",\n                \"last_price_type\": \"trade\",\n                \"last_price_time\": \"2026-10-29 13:00:17\",\n                \"last_trade_time\": \"2026-10-29 13:00:17\",\n                \"open\": 227.25,\n                \"high\": 228.25,\n                \"low\": 225.75,\n                \"volume\": 18460,\n                \"last_price\": 226.25,\n                \"last_price_previous_day\": 227,\n                \"change\": -0.75,\n                \"change_percent\": -0.3303964757709251,\n                \"settlement\": 227,\n                \"settlement_time\": \"2026-10-28 18:32:59\",\n                \"settlement_previous_day\": 228.5,\n                \"settlement_time_previous_day\": \"2026-10-27 18:32:53\",\n                \"open_interest\": 251184,\n                \"open_interest_time\": \"2026-10-29 11:15:00\",\n                \"bid\": 226,\n                \"bid_vol\": 101,\n                \"bid_time\": \"2026-10-29 13:00:21\",\n                \"ask\": 226.25,\n                \"ask_vol\": 57,\n                \"ask_time\": \"2026-10-29 13:00:56\"\n            },\n            {\n                \"instrument_code\": \"LXFREBM27H03\",\n                \"exchange_code\": \"par-c\",\n                \"base_instrument_code\": \"LM3EBM0YFR07\",\n                \"name\": \"Weizen\",\n                \"contract_unit\": \"50 t\",\n                \"price_quotation\": \"\\u20ac \\/ t\",\n                \"contract\": \"2027-03\",\n                \"trading_day\": \"2026-10-29\",\n                \"last_price_type\": \"trade\",\n                \"last_price_time\": \"2026-10-29 12:59:04\",\n                \"last_trade_time\": \"2026-10-29 12:59:04\",\n                \"open\": 226,\n                \"high\": 227,\n                \"low\": 224.5,\n                \"volume\": 10016,\n                \"last_price\": 225.5,\n                \"last_price_previous_day\": 225.75,\n                \"change\": -0.25,\n                \"change_percent\": -0.11074197120708748,\n                \"settlement\": 225.75,\n                \"settlement_time\": \"2026-10-28 18:32:59\",\n                \"settlement_previous_day\": 228,\n                \"settlement_time_previous_day\": \"2026-10-27 18:32:53\",\n                \"open_interest\": 167002,\n                \"open_interest_time\": \"2026-10-29 11:15:00\",\n                \"bid\": 225.25,\n                \"bid_vol\": 37,\n                \"bid_time\": \"2026-10-29 13:00:12\",\n                \"ask\": 225.5,\n                \"ask_vol\": 30,\n                \"ask_time\": \"2026-10-29 13:00:37\"\n            },\n            {\n                \"instrument_code\": \"LXFREBM27K08\",\n                \"exchange_code\": \"par-c\",\n                \"base_instrument_code\": \"LM3EBM0YFR07\",\n                \"name\": \"Weizen\",\n                \"contract_unit\": \"50 t\",\n                \"price_quotation\": \"\\u20ac \\/ t\",\n                \"contract\": \"2027-05\",\n                \"trading_day\": \"2026-10-29\",\n                \"last_price_type\": \"trade\",\n                \"last_price_time\": \"2026-10-29 12:58:10\",\n                \"last_trade_time\": \"2026-10-29 12:58:10\",\n                \"open\": 226.75,\n                \"high\": 227.5,\n                \"low\": 225.5,\n                \"volume\": 3369,\n                \"last_price\": 226.25,\n                \"last_price_previous_day\": 226.25,\n                \"change\": 0,\n                \"change_percent\": 0,\n                \"settlement\": 226.25,\n                \"settlement_time\": \"2026-10-28 18:32:59\",\n                \"settlement_previous_day\": 228,\n                \"settlement_time_previous_day\": \"2026-10-27 18:32:53\",\n                \"open_interest\": 72968,\n                \"open_interest_time\": \"2026-10-29 11:15:00\",\n                \"bid\": 226,\n                \"bid_vol\": 10,\n"
+    },
+    {
+      "url": "https://connect.kt-core.de/extern/ll/timeseries?i=LXFREBM26Z02&basisIsin=LM3EBM0YFR07&currency=eur&unit=t",
+      "methode": "GET",
+      "typ": "xhr",
+      "status": 200,
+      "ctype": "application/json",
+      "post": null,
+      "body": "{\n    \"timeseries\": {\n        \"element\": [\n            {\n                \"instrument_code\": \"LXFREBM26Z02\",\n                \"exchange_code\": \"par-c\",\n                \"date\": \"2023-12-12\",\n                \"open\": null,\n                \"high\": null,\n                \"low\": null,\n                \"last_price\": null,\n                \"volume\": null,\n                \"settlement\": 246.25,\n                \"open_interest\": null\n            },\n            {\n                \"instrument_code\": \"LXFREBM26Z02\",\n                \"exchange_code\": \"par-c\",\n                \"date\": \"2023-12-13\",\n                \"open\": null,\n                \"high\": null,\n                \"low\": null,\n                \"last_price\": null,\n                \"volume\": null,\n                \"settlement\": 242.5,\n                \"open_interest\": null\n            },\n            {\n                \"instrument_code\": \"LXFREBM26Z02\",\n                \"exchange_code\": \"par-c\",\n                \"date\": \"2023-12-14\",\n                \"open\": null,\n                \"high\": null,\n                \"low\": null,\n                \"last_price\": null,\n                \"volume\": null,\n                \"settlement\": 238,\n                \"open_interest\": null\n            },\n            {\n                \"instrument_code\": \"LXFREBM26Z02\",\n                \"exchange_code\": \"par-c\",\n                \"date\": \"2023-12-15\",\n                \"open\": null,\n                \"high\": null,\n                \"low\": null,\n                \"last_price\": null,\n                \"volume\": null,\n                \"settlement\": 237.75,\n                \"open_interest\": null\n            },\n            {\n                \"instrument_code\": \"LXFREBM26Z02\",\n                \"exchange_code\": \"par-c\",\n                \"date\": \"2023-12-18\",\n                \"open\": null,\n                \"high\": null,\n                \"low\": null,\n                \"last_price\": null,\n                \"volume\": null,\n                \"settlement\": 239,\n                \"open_interest\": null\n            },\n            {\n                \"instrument_code\": \"LXFREBM26Z02\",\n                \"exchange_code\": \"par-c\",\n                \"date\": \"2023-12-19\",\n                \"open\": null,\n                \"high\": null,\n                \"low\": null,\n                \"last_price\": null,\n                \"volume\": null,\n                \"settlement\": 238,\n                \"open_interest\": null\n            },\n            {\n                \"instrument_code\": \"LXFREBM26Z02\",\n                \"exchange_code\": \"par-c\",\n                \"date\": \"2023-12-20\",\n                \"open\": null,\n                \"high\": null,\n                \"low\": null,\n                \"last_price\": null,\n                \"volume\": null,\n                \"settlement\": 237.75,\n                \"open_interest\": null\n            },\n            {\n                \"instrument_code\": \"LXFREBM26Z02\",\n                \"exchange_code\": \"par-c\",\n                \"date\": \"2023-12-21\",\n                \"open\": null,\n                \"high\": null,\n                \"low\": null,\n                \"last_price\": null,\n                \"volume\": null,\n                \"settlement\": 237.25,\n                \"open_interest\": null\n            },\n            {\n                \"instrument_code\": \"LXFREBM26Z02\",\n                \"exchange_code\": \"par-c\",\n                \"date\": \"2023-12-22\",\n                \"open\": null,\n                \"high\": null,\n                \"low\": null,\n                \"last_price\": null,\n                \"volume\": null,\n                \"settlement\": 236.5,\n                \"open_interest\": null\n            },\n            {\n                \"instrument_code\": \"LXFREBM26Z02\",\n                \"exchange_code\": \"par-c\",\n                \"date\": \"2023-12-27\",\n                \"open\": null,\n                \"high\": null,\n                \"low\": null,\n                \"last_price\": null,\n                \"volume\": null,\n                \"settlement\": 236,\n                \"open_interest\": null\n            },\n            {\n                \"instrument"
+    }
+  ]
+}
