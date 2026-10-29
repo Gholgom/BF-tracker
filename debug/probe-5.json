@@ -1,0 +1,122 @@
+{
+  "weizen": {
+    "schritte": [
+      "Auswahlfelder: 2",
+      "Feld 0: EUR",
+      "Feld 1: Tonne (t)"
+    ],
+    "vorher": 1,
+    "reihen": [
+      {
+        "url": "https://connect.kt-core.de/extern/ll/timeseries?i=LXFREBM26Z02&basisIsin=LM3EBM0YFR07&currency=eur&unit=t",
+        "codes": [
+          "LXFREBM26Z02"
+        ],
+        "werte": [
+          [
+            "2026-09-16",
+            "LXFREBM26Z02",
+            244.5,
+            245
+          ],
+          [
+            "2026-09-23",
+            "LXFREBM26Z02",
+            240.5,
+            240.75
+          ],
+          [
+            "2026-09-30",
+            "LXFREBM26Z02",
+            236,
+            235.75
+          ],
+          [
+            "2026-10-07",
+            "LXFREBM26Z02",
+            244.25,
+            244
+          ],
+          [
+            "2026-10-14",
+            "LXFREBM26Z02",
+            248.25,
+            249.25
+          ],
+          [
+            "2026-10-21",
+            "LXFREBM26Z02",
+            232.75,
+            232.75
+          ],
+          [
+            "2026-10-28",
+            "LXFREBM26Z02",
+            227,
+            226.75
+          ]
+        ]
+      }
+    ]
+  },
+  "mmp": {
+    "schritte": [
+      "Auswahlfelder: 2",
+      "Feld 0: EUR",
+      "Feld 1: Tonne (t)"
+    ],
+    "vorher": 1,
+    "reihen": [
+      {
+        "url": "https://connect.kt-core.de/extern/ll/timeseries?i=LX0004345811&basisIsin=LX0000639126&currency=eur&unit=t",
+        "codes": [
+          "LX0004345811"
+        ],
+        "werte": [
+          [
+            "2026-09-16",
+            "LX0004345811",
+            3269,
+            3225
+          ],
+          [
+            "2026-09-23",
+            "LX0004345811",
+            3309,
+            3300
+          ],
+          [
+            "2026-09-30",
+            "LX0004345811",
+            3415,
+            null
+          ],
+          [
+            "2026-10-07",
+            "LX0004345811",
+            3525,
+            null
+          ],
+          [
+            "2026-10-14",
+            "LX0004345811",
+            3525,
+            3650
+          ],
+          [
+            "2026-10-21",
+            "LX0004345811",
+            3571,
+            null
+          ],
+          [
+            "2026-10-28",
+            "LX0004345811",
+            3530,
+            null
+          ]
+        ]
+      }
+    ]
+  }
+}
