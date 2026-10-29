@@ -1,46 +1,64 @@
-// Erkundungslauf 4: Anmeldedaten der Seite mitschneiden, damit Nachbar-Termine laden,
-// und die Kontrakt-Auswahl über dem Chart genau ansehen.
+// Erkundungslauf 5: im Kontrakt-Auswahlfeld „Fortlaufend“ wählen und festhalten,
+// welche Datenreihe die Seite dann lädt. Es werden keine Kopfzeilen gespeichert.
 import { chromium } from "playwright";
 import fs from "node:fs";
 
+const SEITEN = {
+  weizen: "https://www.kaack-terminhandel.de/euronext/weizen",
+  mmp: "https://www.kaack-terminhandel.de/eex/magermilchpulver",
+};
+const STICHTAGE = ["2026-09-16", "2026-09-23", "2026-09-30", "2026-10-07", "2026-10-14", "2026-10-21", "2026-10-28"];
+
 fs.mkdirSync("debug", { recursive: true });
 const browser = await chromium.launch();
-const page = await browser.newPage({ locale: "de-DE", viewport: { width: 1280, height: 1600 } });
+const out = {};
 
-let kopf = null;
-const alle = [];
-page.on("request", (req) => {
-  if (req.url().includes("connect.kt-core.de/extern/ll/timeseries")) kopf = req.headers();
-  if (req.url().includes("kt-core.de")) alle.push({ url: req.url(), headers: req.headers() });
-});
+for (const [name, url] of Object.entries(SEITEN)) {
+  const page = await browser.newPage({ locale: "de-DE", viewport: { width: 1280, height: 1600 } });
+  const reihen = [];
+  page.on("response", async (res) => {
+    if (!res.url().includes("/extern/ll/timeseries")) return;
+    try {
+      const el = (await res.json()).timeseries.element;
+      reihen.push({
+        url: res.url(),
+        codes: [...new Set(el.map((e) => e.instrument_code))],
+        werte: el.filter((e) => STICHTAGE.includes(e.date)).map((e) => [e.date, e.instrument_code, e.settlement, e.last_price]),
+      });
+    } catch (e) { reihen.push({ url: res.url(), fehler: String(e) }); }
+  });
 
-await page.goto("https://www.kaack-terminhandel.de/eex/magermilchpulver", { waitUntil: "networkidle", timeout: 60000 });
-await page.waitForTimeout(3000);
+  await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
+  await page.waitForTimeout(3000);
+  const vorher = reihen.length;
+  const schritte = [];
 
-// Nachbar-Termin (Nov 26) mit denselben Kopfzeilen laden
-const ergebnis = {};
-const BASIS = "https://connect.kt-core.de/extern/ll/timeseries";
-for (const [k, url] of Object.entries({
-  mmp_nov26: `${BASIS}?i=LX0004346785&basisIsin=LX0000639126&currency=eur&unit=t`,
-  mmp_dez26: `${BASIS}?i=LX0004348112&basisIsin=LX0000639126&currency=eur&unit=t`,
-})) {
-  try {
-    const r = await page.request.get(url, { headers: kopf || {} });
-    const t = await r.text();
-    let a = t.slice(0, 300);
-    try { a = JSON.parse(t).timeseries.element.filter((e) => e.date >= "2026-09-10").map((e) => [e.date, e.settlement, e.last_price]); } catch {}
-    ergebnis[k] = { status: r.status(), a };
-  } catch (e) { ergebnis[k] = { fehler: String(e) }; }
+  // Alle React-Select-Felder durchgehen; das Kontraktfeld hat einen Monatsnamen oder „Fortlaufend“ als Wert
+  const felder = page.locator(".select-component");
+  const n = await felder.count();
+  schritte.push(`Auswahlfelder: ${n}`);
+  for (let i = 0; i < n; i++) {
+    const f = felder.nth(i);
+    const wert = (await f.innerText()).trim();
+    schritte.push(`Feld ${i}: ${wert.replace(/\s+/g, " ").slice(0, 40)}`);
+    if (!/(Jan|Feb|Mär|Apr|Mai|Jun|Jul|Aug|Sep|Okt|Nov|Dez)\.? \d{2}|Fortlaufend/.test(wert)) continue;
+    try {
+      await f.scrollIntoViewIfNeeded();
+      await f.click();
+      await page.waitForTimeout(800);
+      const optionen = await page.locator("[id^='react-select'][id*='-option-']").allInnerTexts();
+      schritte.push("Optionen: " + optionen.join(" | ").slice(0, 400));
+      const opt = page.locator("[id^='react-select'][id*='-option-']", { hasText: /fortlaufend/i }).first();
+      await opt.click({ timeout: 5000 });
+      schritte.push("Fortlaufend gewählt");
+      await page.waitForTimeout(5000);
+    } catch (e) { schritte.push("Fehler: " + e.message.slice(0, 200)); }
+    break;
+  }
+
+  out[name] = { schritte, vorher, reihen };
+  await page.close();
 }
 
-// Kontrakt-Auswahl untersuchen
-const auswahl = await page.evaluate(() => {
-  const re = /^(Jan|Feb|Mär|Apr|Mai|Jun|Jul|Aug|Sep|Okt|Nov|Dez)\.? \d{2}$/;
-  const el = [...document.querySelectorAll("*")].find((e) => e.children.length === 0 && re.test(e.textContent.trim()));
-  if (!el) return null;
-  let p = el; for (let i = 0; i < 5 && p.parentElement; i++) p = p.parentElement;
-  return p.outerHTML.slice(0, 8000);
-});
-
-fs.writeFileSync("debug/probe-4.json", JSON.stringify({ kopfzeilen: kopf, anfragen: alle, ergebnis, auswahl }, null, 2));
+fs.writeFileSync("debug/probe-5.json", JSON.stringify(out, null, 2));
 await browser.close();
