@@ -1,4 +1,4 @@
-// Erkundungslauf: öffnet die Kaack-Kursseiten und speichert, woher der Chart seine Daten holt.
+// Erkundungslauf 2: wählt im Kaack-Chart „Fortlaufend“ und speichert die Datenanfragen vollständig.
 import { chromium } from "playwright";
 import fs from "node:fs";
 
@@ -14,40 +14,40 @@ for (const [name, url] of Object.entries(SEITEN)) {
   const page = await browser.newPage({ locale: "de-DE", viewport: { width: 1280, height: 1600 } });
   const anfragen = [];
   page.on("response", async (res) => {
-    const req = res.request();
-    const typ = req.resourceType();
-    if (!["xhr", "fetch", "script", "document"].includes(typ)) return;
-    const eintrag = { url: res.url(), methode: req.method(), typ, status: res.status(), ctype: res.headers()["content-type"] || "", post: req.postData() || null };
-    if (["xhr", "fetch"].includes(typ)) {
-      try { eintrag.body = (await res.text()).slice(0, 4000); } catch { eintrag.body = null; }
-    }
-    anfragen.push(eintrag);
+    if (!res.url().includes("kt-core.de")) return;
+    let body = null;
+    try { body = await res.text(); } catch {}
+    anfragen.push({ zeit: Date.now(), url: res.url(), status: res.status(), body });
   });
 
   await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(3000);
+  const vorher = anfragen.length;
+  const schritte = [];
 
-  const auswahl = await page.$$eval("select", (els) => els.map((s) => ({
-    name: s.name, id: s.id, klasse: s.className, wert: s.value,
-    optionen: [...s.options].map((o) => ({ wert: o.value, text: o.textContent.trim() })).slice(0, 40),
-  })));
+  // Kontrakt-Auswahl über dem Chart finden und auf „Fortlaufend“ stellen
+  try {
+    const knopf = page.getByText(/^(Jan|Feb|Mär|Apr|Mai|Jun|Jul|Aug|Sep|Okt|Nov|Dez)\.? \d{2}$/).first();
+    await knopf.scrollIntoViewIfNeeded();
+    await knopf.click({ timeout: 10000 });
+    schritte.push("Auswahl geöffnet");
+    await page.waitForTimeout(1000);
+    await page.getByText("Fortlaufend", { exact: true }).first().click({ timeout: 10000 });
+    schritte.push("Fortlaufend geklickt");
+    await page.waitForTimeout(5000);
+  } catch (e) {
+    schritte.push("Fehler: " + e.message.slice(0, 300));
+  }
 
-  const charts = await page.evaluate(() => {
-    const out = { highcharts: null, globals: [] };
-    if (window.Highcharts && window.Highcharts.charts) {
-      out.highcharts = window.Highcharts.charts.filter(Boolean).map((c) => c.series.map((s) => ({
-        name: s.name, punkte: (s.options.data || []).length,
-        letzte: (s.options.data || []).slice(-12),
-      })));
-    }
-    for (const k of Object.keys(window)) {
-      if (/chart|kurs|data|stock|amchart|echart|apex/i.test(k)) out.globals.push(k);
-    }
-    return out;
+  // Zusätzlich: HTML rund um die Auswahl sichern
+  const html = await page.evaluate(() => {
+    const el = [...document.querySelectorAll("*")].find((e) => e.children.length === 0 && /Fortlaufend/.test(e.textContent));
+    let p = el; for (let i = 0; i < 4 && p && p.parentElement; i++) p = p.parentElement;
+    return p ? p.outerHTML.slice(0, 6000) : null;
   });
 
-  await page.screenshot({ path: `debug/${name}.png`, fullPage: false });
-  fs.writeFileSync(`debug/${name}.json`, JSON.stringify({ url, auswahl, charts, anfragen }, null, 2));
+  await page.screenshot({ path: `debug/${name}-2.png` });
+  fs.writeFileSync(`debug/${name}-2.json`, JSON.stringify({ url, schritte, neueAnfragenAb: vorher, html, anfragen }, null, 2));
   await page.close();
 }
 
