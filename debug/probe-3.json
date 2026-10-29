@@ -1,0 +1,22 @@
+{
+  "weizen_basis": {
+    "status": 401,
+    "auszug": "{\n    \"error\": {\n        \"type\": \"UNAUTHENTICATED\",\n        \"description\": \"Unauthorized.\"\n    }\n}"
+  },
+  "weizen_basis_cont": {
+    "status": 401,
+    "auszug": "{\n    \"error\": {\n        \"type\": \"UNAUTHENTICATED\",\n        \"description\": \"Unauthorized.\"\n    }\n}"
+  },
+  "mmp_basis": {
+    "status": 401,
+    "auszug": "{\n    \"error\": {\n        \"type\": \"UNAUTHENTICATED\",\n        \"description\": \"Unauthorized.\"\n    }\n}"
+  },
+  "mmp_basis_cont": {
+    "status": 401,
+    "auszug": "{\n    \"error\": {\n        \"type\": \"UNAUTHENTICATED\",\n        \"description\": \"Unauthorized.\"\n    }\n}"
+  },
+  "mmp_nov26": {
+    "status": 401,
+    "auszug": "{\n    \"error\": {\n        \"type\": \"UNAUTHENTICATED\",\n        \"description\": \"Unauthorized.\"\n    }\n}"
+  }
+}
