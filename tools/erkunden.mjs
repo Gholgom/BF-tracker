@@ -1,54 +1,31 @@
-// Erkundungslauf 2: wählt im Kaack-Chart „Fortlaufend“ und speichert die Datenanfragen vollständig.
-import { chromium } from "playwright";
+// Erkundungslauf 3: probiert, ob die Schnittstelle eine fortlaufende Reihe liefert,
+// und lädt die Reihen der Nachbar-Termine zum Vergleich.
 import fs from "node:fs";
 
-const SEITEN = {
-  weizen: "https://www.kaack-terminhandel.de/euronext/weizen",
-  mmp: "https://www.kaack-terminhandel.de/eex/magermilchpulver",
+const BASIS = "https://connect.kt-core.de/extern/ll/timeseries";
+const HDR = { Referer: "https://www.kaack-terminhandel.de/", Origin: "https://www.kaack-terminhandel.de" };
+const KANDIDATEN = {
+  weizen_basis: `${BASIS}?i=LM3EBM0YFR07&basisIsin=LM3EBM0YFR07&currency=eur&unit=t`,
+  weizen_basis_cont: `${BASIS}?i=LM3EBM0YFR07&basisIsin=LM3EBM0YFR07&currency=eur&unit=t&continuous=1`,
+  mmp_basis: `${BASIS}?i=LX0000639126&basisIsin=LX0000639126&currency=eur&unit=t`,
+  mmp_basis_cont: `${BASIS}?i=LX0000639126&basisIsin=LX0000639126&currency=eur&unit=t&continuous=1`,
+  mmp_nov26: `${BASIS}?i=LX0004346785&basisIsin=LX0000639126&currency=eur&unit=t`,
 };
 
 fs.mkdirSync("debug", { recursive: true });
-const browser = await chromium.launch();
-
-for (const [name, url] of Object.entries(SEITEN)) {
-  const page = await browser.newPage({ locale: "de-DE", viewport: { width: 1280, height: 1600 } });
-  const anfragen = [];
-  page.on("response", async (res) => {
-    if (!res.url().includes("kt-core.de")) return;
-    let body = null;
-    try { body = await res.text(); } catch {}
-    anfragen.push({ zeit: Date.now(), url: res.url(), status: res.status(), body });
-  });
-
-  await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
-  await page.waitForTimeout(3000);
-  const vorher = anfragen.length;
-  const schritte = [];
-
-  // Kontrakt-Auswahl über dem Chart finden und auf „Fortlaufend“ stellen
+const out = {};
+for (const [k, url] of Object.entries(KANDIDATEN)) {
   try {
-    const knopf = page.getByText(/^(Jan|Feb|Mär|Apr|Mai|Jun|Jul|Aug|Sep|Okt|Nov|Dez)\.? \d{2}$/).first();
-    await knopf.scrollIntoViewIfNeeded();
-    await knopf.click({ timeout: 10000 });
-    schritte.push("Auswahl geöffnet");
-    await page.waitForTimeout(1000);
-    await page.getByText("Fortlaufend", { exact: true }).first().click({ timeout: 10000 });
-    schritte.push("Fortlaufend geklickt");
-    await page.waitForTimeout(5000);
+    const r = await fetch(url, { headers: HDR });
+    const t = await r.text();
+    let auszug = t.slice(0, 600);
+    try {
+      const el = JSON.parse(t).timeseries.element;
+      auszug = { anzahl: el.length, codes: [...new Set(el.map((e) => e.instrument_code))], ab2026_09: el.filter((e) => e.date >= "2026-09-10") };
+    } catch {}
+    out[k] = { status: r.status, auszug };
   } catch (e) {
-    schritte.push("Fehler: " + e.message.slice(0, 300));
+    out[k] = { fehler: String(e) };
   }
-
-  // Zusätzlich: HTML rund um die Auswahl sichern
-  const html = await page.evaluate(() => {
-    const el = [...document.querySelectorAll("*")].find((e) => e.children.length === 0 && /Fortlaufend/.test(e.textContent));
-    let p = el; for (let i = 0; i < 4 && p && p.parentElement; i++) p = p.parentElement;
-    return p ? p.outerHTML.slice(0, 6000) : null;
-  });
-
-  await page.screenshot({ path: `debug/${name}-2.png` });
-  fs.writeFileSync(`debug/${name}-2.json`, JSON.stringify({ url, schritte, neueAnfragenAb: vorher, html, anfragen }, null, 2));
-  await page.close();
 }
-
-await browser.close();
+fs.writeFileSync("debug/probe-3.json", JSON.stringify(out, null, 2));
