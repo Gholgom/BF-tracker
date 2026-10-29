@@ -1,0 +1,417 @@
+{
+  "kopfzeilen": {
+    "sec-ch-ua-platform": "\"Linux\"",
+    "authorization": "Bearer P9PO3H3FND7nfmyfmW8jb2H9KGMKCJWYqtZXPSzeK2XXI3cXov4Bxaq6jbdOgWB6",
+    "referer": "https://www.kaack-terminhandel.de/",
+    "accept-language": "de-DE",
+    "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"HeadlessChrome\";v=\"156\"",
+    "sec-ch-ua-mobile": "?0",
+    "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+    "accept": "application/json"
+  },
+  "anfragen": [
+    {
+      "url": "https://connect.kt-core.de/extern/ll/quotes?bi%5B%5D=LX0000639126&currency=eur&unit=t&table=eod",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "authorization": "Bearer P9PO3H3FND7nfmyfmW8jb2H9KGMKCJWYqtZXPSzeK2XXI3cXov4Bxaq6jbdOgWB6",
+        "referer": "https://www.kaack-terminhandel.de/",
+        "accept-language": "de-DE",
+        "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"HeadlessChrome\";v=\"156\"",
+        "sec-ch-ua-mobile": "?0",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+        "accept": "application/json"
+      }
+    },
+    {
+      "url": "https://digital9.kt-core.de/api/v1/databases/latest?queryBy=id&databases=146",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "authorization": "Bearer X43Ur7Dr89jQCiXejQwdDGRRniS0ejjzkcBHS3wN",
+        "referer": "https://www.kaack-terminhandel.de/",
+        "accept-language": "de-DE",
+        "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"HeadlessChrome\";v=\"156\"",
+        "sec-ch-ua-mobile": "?0",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+        "accept": "application/json",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "url": "https://connect.kt-core.de/extern/ll/timeseries?i=LX0004345811&basisIsin=LX0000639126&currency=eur&unit=t",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "authorization": "Bearer P9PO3H3FND7nfmyfmW8jb2H9KGMKCJWYqtZXPSzeK2XXI3cXov4Bxaq6jbdOgWB6",
+        "referer": "https://www.kaack-terminhandel.de/",
+        "accept-language": "de-DE",
+        "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"HeadlessChrome\";v=\"156\"",
+        "sec-ch-ua-mobile": "?0",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+        "accept": "application/json"
+      }
+    }
+  ],
+  "ergebnis": {
+    "mmp_nov26": {
+      "status": 200,
+      "a": [
+        [
+          "2026-09-10",
+          3338,
+          null
+        ],
+        [
+          "2026-09-11",
+          3303,
+          3250
+        ],
+        [
+          "2026-09-14",
+          3305,
+          null
+        ],
+        [
+          "2026-09-15",
+          3305,
+          3225
+        ],
+        [
+          "2026-09-16",
+          3275,
+          3225
+        ],
+        [
+          "2026-09-17",
+          3242,
+          3250
+        ],
+        [
+          "2026-09-18",
+          3254,
+          3230
+        ],
+        [
+          "2026-09-21",
+          3269,
+          null
+        ],
+        [
+          "2026-09-22",
+          3308,
+          3275
+        ],
+        [
+          "2026-09-23",
+          3306,
+          3300
+        ],
+        [
+          "2026-09-24",
+          3375,
+          null
+        ],
+        [
+          "2026-09-25",
+          3484,
+          3420
+        ],
+        [
+          "2026-09-28",
+          3425,
+          null
+        ],
+        [
+          "2026-09-29",
+          3460,
+          null
+        ],
+        [
+          "2026-09-30",
+          3463,
+          null
+        ],
+        [
+          "2026-10-01",
+          3425,
+          null
+        ],
+        [
+          "2026-10-02",
+          3425,
+          null
+        ],
+        [
+          "2026-10-05",
+          3425,
+          null
+        ],
+        [
+          "2026-10-06",
+          3563,
+          null
+        ],
+        [
+          "2026-10-07",
+          3683,
+          3700
+        ],
+        [
+          "2026-10-08",
+          3622,
+          null
+        ],
+        [
+          "2026-10-09",
+          3602,
+          null
+        ],
+        [
+          "2026-10-12",
+          3638,
+          null
+        ],
+        [
+          "2026-10-13",
+          3638,
+          null
+        ],
+        [
+          "2026-10-14",
+          3675,
+          3650
+        ],
+        [
+          "2026-10-15",
+          3600,
+          null
+        ],
+        [
+          "2026-10-16",
+          3619,
+          null
+        ],
+        [
+          "2026-10-19",
+          3613,
+          null
+        ],
+        [
+          "2026-10-20",
+          3725,
+          null
+        ],
+        [
+          "2026-10-21",
+          3725,
+          null
+        ],
+        [
+          "2026-10-22",
+          3688,
+          3650
+        ],
+        [
+          "2026-10-23",
+          3710,
+          null
+        ],
+        [
+          "2026-10-26",
+          3679,
+          null
+        ],
+        [
+          "2026-10-27",
+          3679,
+          null
+        ],
+        [
+          "2026-10-28",
+          3685,
+          null
+        ]
+      ]
+    },
+    "mmp_dez26": {
+      "status": 200,
+      "a": [
+        [
+          "2026-09-10",
+          3313,
+          null
+        ],
+        [
+          "2026-09-11",
+          3290,
+          3250
+        ],
+        [
+          "2026-09-14",
+          3290,
+          null
+        ],
+        [
+          "2026-09-15",
+          3290,
+          3225
+        ],
+        [
+          "2026-09-16",
+          3281,
+          3225
+        ],
+        [
+          "2026-09-17",
+          3242,
+          3250
+        ],
+        [
+          "2026-09-18",
+          3250,
+          3230
+        ],
+        [
+          "2026-09-21",
+          3281,
+          null
+        ],
+        [
+          "2026-09-22",
+          3319,
+          3300
+        ],
+        [
+          "2026-09-23",
+          3275,
+          3300
+        ],
+        [
+          "2026-09-24",
+          3400,
+          null
+        ],
+        [
+          "2026-09-25",
+          3421,
+          3420
+        ],
+        [
+          "2026-09-28",
+          3425,
+          null
+        ],
+        [
+          "2026-09-29",
+          3460,
+          null
+        ],
+        [
+          "2026-09-30",
+          3475,
+          null
+        ],
+        [
+          "2026-10-01",
+          3470,
+          null
+        ],
+        [
+          "2026-10-02",
+          3470,
+          null
+        ],
+        [
+          "2026-10-05",
+          3581,
+          null
+        ],
+        [
+          "2026-10-06",
+          3588,
+          null
+        ],
+        [
+          "2026-10-07",
+          3682,
+          3700
+        ],
+        [
+          "2026-10-08",
+          3630,
+          null
+        ],
+        [
+          "2026-10-09",
+          3623,
+          null
+        ],
+        [
+          "2026-10-12",
+          3646,
+          null
+        ],
+        [
+          "2026-10-13",
+          3700,
+          null
+        ],
+        [
+          "2026-10-14",
+          3733,
+          3650
+        ],
+        [
+          "2026-10-15",
+          3628,
+          null
+        ],
+        [
+          "2026-10-16",
+          3650,
+          3650
+        ],
+        [
+          "2026-10-19",
+          3671,
+          null
+        ],
+        [
+          "2026-10-20",
+          3670,
+          null
+        ],
+        [
+          "2026-10-21",
+          3757,
+          null
+        ],
+        [
+          "2026-10-22",
+          3700,
+          3650
+        ],
+        [
+          "2026-10-23",
+          3700,
+          null
+        ],
+        [
+          "2026-10-26",
+          3681,
+          3675
+        ],
+        [
+          "2026-10-27",
+          3661,
+          3650
+        ],
+        [
+          "2026-10-28",
+          3700,
+          null
+        ]
+      ]
+    }
+  },
+  "auswahl": "<div class=\"ktkursdaten-container\"><div class=\"kt-table-overview\"><div class=\"kt-table-topbar\"><div class=\"commodityName\">EEX Magermilchpulver [EUR/t]</div><div class=\"flexStretch\"></div><div class=\"select-menu\"><div class=\"select-wrapper\"><div class=\"select-label\">Währung</div><div class=\"select-component css-b62m3t-container\"><span id=\"react-select-3-live-region\" class=\"css-7pg0cj-a11yText\"></span><span aria-live=\"polite\" aria-atomic=\"false\" aria-relevant=\"additions text\" role=\"log\" class=\"css-7pg0cj-a11yText\"></span><div class=\" css-1rsj68x-control\"><div class=\" css-nw8hcb\"><div class=\" css-1dimb5e-singleValue\">EUR</div><input id=\"react-select-3-input\" tabindex=\"0\" inputmode=\"none\" aria-autocomplete=\"list\" aria-expanded=\"false\" aria-haspopup=\"true\" role=\"combobox\" aria-activedescendant=\"\" aria-readonly=\"true\" class=\"css-1hac4vs-dummyInput\" value=\"\"></div><div class=\" css-11vhife\"><span class=\" css-1u9des2-indicatorSeparator\"></span><div class=\" css-1xc3v61-indicatorContainer\" aria-hidden=\"true\"><svg height=\"20\" width=\"20\" viewBox=\"0 0 20 20\" aria-hidden=\"true\" focusable=\"false\" class=\"css-8mmkcg\"><path d=\"M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z\"></path></svg></div></div></div></div></div><div class=\"select-wrapper\"><div class=\"select-label\">Einheit</div><div class=\"select-component css-3iigni-container\"><span id=\"react-select-4-live-region\" class=\"css-7pg0cj-a11yText\"></span><span aria-live=\"polite\" aria-atomic=\"false\" aria-relevant=\"additions text\" role=\"log\" class=\"css-7pg0cj-a11yText\"></span><div class=\" css-lu521x-control\" aria-disabled=\"true\"><div class=\" css-nw8hcb\"><div class=\" css-olqui2-singleValue\">Tonne (t)</div><input id=\"react-select-4-input\" disabled=\"\" tabindex=\"0\" inputmode=\"none\" aria-autocomplete=\"list\" aria-expanded=\"false\" aria-haspopup=\"true\" role=\"combobox\" aria-activedescendant=\"\" aria-readonly=\"true\" class=\"css-1hac4vs-dummyInput\" value=\"\"></div><div class=\" css-11vhife\"><span class=\" css-894a34-indicatorSeparator\"></span><div class=\" css-1xc3v61-indicatorContainer\" aria-hidden=\"true\"><svg height=\"20\" width=\"20\" viewBox=\"0 0 20 20\" aria-hidden=\"true\" focusable=\"false\" class=\"css-8mmkcg\"><path d=\"M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z\"></path></svg></div></div></div></div></div></div><div class=\"auto-refresh-wrapper\"><div class=\"checkbox-wrap\"><input id=\"auto-refresh\" type=\"checkbox\"><label for=\"auto-refresh\">Automatisch aktualisieren</label></div></div></div><table><thead><tr class=\"kt-table-head kt-row\"><th class=\"kt-col text-left\">Kontrakt</th><th class=\"kt-col text-right\">Vortag</th><th class=\"kt-col text-right kt-hide-xl\">Erster</th><th class=\"kt-col text-right kt-hide-md\">Hoch</th><th class=\"kt-col text-right kt-hide-md\">Tief</th><th class=\"kt-col text-right\">Schlusskurs</th><th class=\"kt-col text-right kt-hide-lg\">Kurszeit</th><th class=\"kt-col text-center\" colspan=\"2\">Veränderung</th><th class=\"kt-col text-right kt-hide-xl\">G.-Vol.</th><th class=\"kt-col text-right kt-hide-lg\">Geld</th><th class=\"kt-col text-right kt-hide-lg\">Brief</th><th class=\"kt-col text-right kt-hide-xl\">B.-Vol.</th><th class=\"kt-col text-right kt-hide-sm\">Umsatz</th><th class=\"kt-col text-right kt-hide-sm\">Open Interest</th></tr></thead><tbody><tr class=\"kt-row\"><td class=\"kt-col contract text-left clickable\">Okt 26</td><td class=\"kt-col text-right\"><span>3571,00</span></td><td class=\"kt-col text-right kt-hide-xl\"><span></span></td><td class=\"kt-col text-right kt-hide-md\"><span></span></td><td class=\"kt-col text-right kt-hide-md\"><span></span></td><td class=\"kt-col text-right font-weight-600 red\"><span class=\"clickable\">3530,00</span></td><td class=\"kt-col text-right kt-hide-lg\">28.10.2026 18:57</td><td class=\"kt-col text-right red\"><span>-41,00</span></td><td class=\"kt-col text-right red\"><span>-1,15</span>%</td><td class=\"kt-col text-right kt-hide-xl\"><span></span></td><td class=\"kt-col text-right kt-hide-lg\"><span>3490,00</span></td><td class=\"kt-col text-right kt-hide-lg\"><span>3651,00</span></td><td class=\"kt-col text-right kt-hide-xl\"><span></span></td><td class=\"kt-col text-right kt-hide-sm\"><span></span></td><td class=\"kt-col text-right kt-hide-sm\"><span>649</span></td></tr><tr class=\"kt-row\"><td class=\"kt-col contract text-left clickable\">Nov 26</td><td class=\"kt-col text-right\"><span>3679,00</span></td><td class=\"kt-col text-right kt-hide-xl\"><span></span></td><td class=\"kt-col text-right kt-hide-md\"><span></span></td><td class=\"kt-col text-right kt-hide-md\"><span></span></td><td class=\"kt-col text-right font-weight-600 green\"><span class=\"clickable\">3685,00</span></td><td class=\"kt-col text-right kt-hide-lg\">28.10.2026 18:57</td><td class=\"kt-col text-right green\"><span>6,00</span></td><td class=\"kt-col text-right green\"><span>0,16</span>%</td><td class=\"kt-col text-right kt-hide-xl\"><span></span></td><td class=\"kt-col text-right kt-hide-lg\"><span>3620,00</span></td><td class=\"kt-col text-right kt-hide-lg\"><span>3750,00</span></td><td class=\"kt-col text-right kt-hide-xl\"><span></span></td><td class=\"kt-col text-right kt-hide-sm\"><span></span></td><td class=\"kt-col text-right kt-hide-sm\"><span>719</span></td></tr><tr class=\"kt-row\"><td class=\"kt-col contract text-left clickable\">Dez 26</td><td class=\"kt-col text-right\"><span>3661,00</span></td><td class=\"kt-col text-right kt-hide-xl\"><span></span></td><td class=\"kt-col text-right kt-hide-md\"><span></span></td><td class=\"kt-col text-right kt-hide-md\"><span></span></td><td class=\"kt-col text-right font-weight-600 green\"><span class=\"clickable\">3700,00</span></td><td class=\"kt-col text-right kt-hide-lg\">28.10.2026 18:57</td><td class=\"kt-col text-right green\"><span>39,00</span></td><td class=\"kt-col text-right green\"><span>1,07</span>%</td><td class=\"kt-col text-right kt-hide-xl\"><span></span></td><td class=\"kt-col text-right kt-hide-lg\"><span>3625,00</span></td><td class=\"kt-col text-right kt-hide-lg\"><span>3750,00</span></td><td class=\"kt-col text-right kt-hide-xl\"><span></span></td><td class=\"kt-col text-right kt-hide-sm\"><span></span></td><td class=\"kt-col text-right kt-hide-sm\"><span>645</span></td></tr><tr class=\"kt-row\"><td class=\"kt-col contract text-left clickable\">Jan 27</td><td class=\"kt-col text-right\"><span>3569,00</span></td><td class=\"kt-col text-right kt-hide-xl\"><span></span></td><td class=\"kt-col text-right kt-hide-md\"><span></span></td><td class=\"kt-col text-right kt-hide-md\"><span></span></td><td class=\"kt-col text-right font-weight-600 green\"><span class=\"clickable\">3650,00</span></td><td class=\"kt-col text-right kt-hide-lg\">28.10.2026 18:57</td><td class=\"kt-col text-right green\"><span>81,00</span></td><td class=\"kt-col text-right green\"><span>2,27</span>%</td><td class=\"kt-col text-right kt-hide-xl\"><span></span></td><td class=\"kt-col text-right kt-hide-lg\"><span>3550,00</span></td><td class=\"kt-col text-right kt-hide-lg\"><span>3750,00</span></td><td class=\"kt-col text-right kt-hide-xl\"><span></span></td><td class=\"kt-col text-right kt-hide-sm\"><span></span></td><td class=\"kt-col text-right kt-hide-sm\"><span>586</span></td></tr><tr class=\"kt-row\"><td class=\"kt-col contract text-left clickable\">Feb 27</td><td class=\"kt-col text-right\"><span>3528,00</span></td><td class=\"kt-col text-right kt-hide-xl\"><span></span></td><td class=\"kt-col text-right kt-hide-md\"><span></span></td><td class=\"kt-col text-right kt-hide-md\"><span></span></td><td class=\"kt-col text-right font-weight-600 green\"><span class=\"clickable\">3650,00</span></td><td class=\"kt-col text-right kt-hide-lg\">28.10.2026 18:57</td><td class="
+}
