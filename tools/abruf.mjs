@@ -32,20 +32,48 @@ function isoKW(s) {
 }
 
 const daten = JSON.parse(fs.readFileSync(DATEI, "utf8"));
+
+// Nichts zu tun, wenn alle Mittwoche bis heute schon eingetragen sind (z. B. beim Ersatzlauf)
+const heute = new Date().toLocaleDateString("sv-SE", { timeZone: "Europe/Berlin" });
+const sollTage = [];
+for (let d = new Date(START + "T00:00:00Z"); iso(d) <= heute; d.setUTCDate(d.getUTCDate() + 7)) sollTage.push(iso(d));
+const fehlt = Object.values(daten.produkte).some((p) => sollTage.some((t) => !p.werte.some((w) => w.datum === t)));
+if (!fehlt && !process.env.ABRUF_TEST) {
+  console.log("Alle Stichtage bis heute vorhanden – nichts zu tun.");
+  process.exit(0);
+}
+
+// Seite laden und warten, bis Terminliste und Kursreihe geladen sind.
+// Nicht auf „networkidle“ warten: während der Handelszeit lädt Kaack laufend nach.
+async function kaackLaden(page, url, id) {
+  for (let versuch = 1; versuch <= 3; versuch++) {
+    let kopf = null;
+    const onReq = (r) => { if (r.url().includes("/extern/ll/timeseries")) kopf = r.headers(); };
+    page.on("request", onReq);
+    try {
+      const quotesAntwort = page.waitForResponse((r) => r.url().includes("/extern/ll/quotes") && r.ok(), { timeout: 60000 });
+      const reiheAntwort = page.waitForRequest((r) => r.url().includes("/extern/ll/timeseries"), { timeout: 60000 });
+      await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
+      const [q] = await Promise.all([quotesAntwort, reiheAntwort]);
+      const termine = (await q.json()).quotes.element;
+      if (kopf && termine && termine.length) return { kopf, termine };
+      throw new Error("Antwort unvollständig");
+    } catch (e) {
+      console.log(`${id}: Versuch ${versuch} fehlgeschlagen (${e.message.split("\n")[0]})`);
+      if (versuch === 3) throw new Error(`${id}: Kaack-Daten nicht geladen (Seite geändert oder nicht erreichbar?)`);
+      await page.waitForTimeout(10000 * versuch);
+    } finally {
+      page.off("request", onReq);
+    }
+  }
+}
+
 const browser = await chromium.launch();
 let neu = 0;
 
 for (const [id, p] of Object.entries(PRODUKTE)) {
   const page = await browser.newPage({ locale: "de-DE" });
-  let kopf = null, termine = null;
-  page.on("request", (r) => { if (r.url().includes("/extern/ll/timeseries")) kopf = r.headers(); });
-  page.on("response", async (r) => {
-    if (!r.url().includes("/extern/ll/quotes")) return;
-    try { termine = (await r.json()).quotes.element; } catch {}
-  });
-  await page.goto(p.url, { waitUntil: "networkidle", timeout: 60000 });
-  await page.waitForTimeout(3000);
-  if (!kopf || !termine) throw new Error(`${id}: Kaack-Daten nicht geladen (Seite geändert?)`);
+  const { kopf, termine } = await kaackLaden(page, p.url, id);
 
   // Termine mit Verfallstag, sortiert
   const liste = termine.map((t) => {
